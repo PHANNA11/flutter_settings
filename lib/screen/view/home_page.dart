@@ -1,13 +1,16 @@
+import 'package:flutte_settings/screen/view/controller/themContrller.dart';
 import 'package:flutte_settings/screen/view/fonts/controller/fonts_controller.dart';
 import 'package:flutte_settings/screen/view/fonts/view/font_home_page.dart';
+import 'package:flutte_settings/screen/view/language/view/language_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 
+// ignore: must_be_immutable
 class HomePage extends StatelessWidget {
   HomePage({super.key});
   FontController controller = Get.put(FontController());
+  ThemeController themeController = Get.put(ThemeController());
   @override
   Widget build(BuildContext context) {
     return GetBuilder<FontController>(builder: (context) {
@@ -26,15 +29,22 @@ class HomePage extends StatelessWidget {
                 'Dark Mode',
                 style: TextStyle(fontFamily: controller.selectFont.value),
               ),
-              trailing: CupertinoSwitch(
-                value: true,
-                onChanged: (value) {},
-              ),
+              trailing: SimpleBuilder(builder: (context) {
+                return CupertinoSwitch(
+                  value: themeController.isDark,
+                  onChanged: (value) {
+                    themeController.changeTheme(value);
+                  },
+                );
+              }),
             ),
             const Divider(
               thickness: 1,
             ),
             ListTile(
+              onTap: () {
+                Get.to(() => const LanguageScreen());
+              },
               leading: const Icon(Icons.language),
               title: Text(
                 'Language',

@@ -34,9 +34,9 @@ class FontHomePage extends StatelessWidget {
                         style: TextStyle(
                             fontFamily: controller.googleFontsList[index]),
                       ),
-                      trailing: controller.selectFont ==
+                      trailing: controller.selectFont.value ==
                               controller.googleFontsList[index]
-                          ? CircleAvatar(
+                          ? const CircleAvatar(
                               maxRadius: 12,
                               child: Icon(
                                 Icons.done,
