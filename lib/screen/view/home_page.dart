@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           title: Text(
-            'Settings',
+            'setting'.tr,
             style: TextStyle(fontFamily: controller.selectFont.value),
           ),
         ),
@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
               },
               leading: const Icon(Icons.language),
               title: Text(
-                'Language',
+                'languages'.tr,
                 style: TextStyle(fontFamily: controller.selectFont.value),
               ),
               trailing: const Icon(Icons.arrow_forward_ios),
@@ -61,7 +61,7 @@ class HomePage extends StatelessWidget {
               },
               leading: const Icon(Icons.font_download),
               title: Text(
-                'Fonts',
+                'Fonts'.tr,
                 style: TextStyle(fontFamily: controller.selectFont.value),
               ),
               trailing: const Icon(Icons.arrow_forward_ios),
